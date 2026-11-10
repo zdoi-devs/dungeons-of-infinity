@@ -167,9 +167,20 @@ for(var i = 0; i < PendantCount; i++)
 
 
 //Crystals
-for(var i = 0; i < 3; i++){
-	draw_sprite(sHUD_Crystal, ShowCrystals && i <= oHUD.BossesDefeated - 1 ? 1 : 0, CrystalsX[i], CrystalsY);
+if !global.Speedrun{
+	for(var i = 0; i < 3; i++){
+		draw_sprite(sHUD_Crystal, ShowCrystals && i <= oHUD.BossesDefeated - 1 ? 1 : 0, CrystalsX[i], CrystalsY);
+	}
 }
+//Speedrun Timer
+else{
+	draw_set_font(global.MenuFont);
+	draw_set_halign(fa_left);
+	draw_text(TimerX, TimerY, Time_Str(Time_PlayingTotal()));
+}
+draw_set_font(global.MenuFont);
+draw_set_halign(fa_left);
+draw_text(TimerX, TimerY, Time_Str(Time_PlayingTotal()));
 
 //Dungeon Icons
 	

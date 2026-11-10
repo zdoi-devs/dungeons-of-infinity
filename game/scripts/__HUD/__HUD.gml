@@ -102,7 +102,10 @@ function HUD_SetPositions(_MainSide){
 		for(var i = 0; i < 3; i++){
 			CrystalsX[i] = MainSide + 12 + (i * 19);
 		}
-	
+		
+		TimerY = 205
+		TimerX = MainSide + 12
+		
 		DungeonX = MapSide + 2;
 		DungeonY = 73;
 	
