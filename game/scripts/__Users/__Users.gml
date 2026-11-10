@@ -414,6 +414,7 @@ function Settings_SaveIni(){
 		ini_write_real("Audio", "SFXVol", round(global.SFXVol * 100) / 100);
 		ini_write_real("Preferences", "Gore", global.Gore ? 1 : 0);
 		ini_write_real("Preferences", "Lighting", global.GlobalLighting ? 1 : 0);
+		ini_write_real("Preferences", "Speedrun", global.Speedrun ? 1 : 0);
 		ini_write_real("Preferences", "AltTabPause", global.AltTabPause ? 1 : 0);
 		ini_write_real("Preferences", "StairPause", global.StairPause ? 1 : 0);
 		ini_write_real("Preferences", "SaveVersionCheck", global.SaveVersionCheck ? 1 : 0);

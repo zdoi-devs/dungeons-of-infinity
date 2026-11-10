@@ -178,9 +178,6 @@ else{
 	draw_set_halign(fa_left);
 	draw_text(TimerX, TimerY, Time_Str(Time_PlayingTotal()));
 }
-draw_set_font(global.MenuFont);
-draw_set_halign(fa_left);
-draw_text(TimerX, TimerY, Time_Str(Time_PlayingTotal()));
 
 //Dungeon Icons
 	

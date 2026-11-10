@@ -23,6 +23,7 @@ global.SFXVol = ini_read_real("Audio", "SFXVol", 1.0);
 global.Gamepad_AnalogueThreshold = ini_read_real("Controls", "AnalogueThreshold", 0.4);
 
 global.Gore = ini_read_real("Preferences", "Gore", 1) == 1 ? true : false;
+global.Speedrun = ini_read_real("Preferences", "Speedrun", 0) == 1 ? true : false;
 global.GlobalLighting = ini_read_real("Preferences", "Lighting", 1) == 1 ? true : false;
 global.AltTabPause = ini_read_real("Preferences", "AltTabPause", 1) == 1 ? true : false;
 global.SaveVersionCheck = ini_read_real("Preferences", "SaveVersionCheck", 1) == 1 ? true : false;
