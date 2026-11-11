@@ -23,7 +23,11 @@ if(EndGraphics){
 	draw_text(_x, _y, "peace returns to Hyrule."); _y+=16;
 	draw_text(_x, _y, "The End."); _y+=32; 
 
-	draw_text(_x, _y, "Total time: " + Time_Str(global.Time_PlayingTotal));
+	draw_text(_x, _y, "Total time: " + Time_Str(global.Time_PlayingTotal)); 
+	if global.Speedrun{
+		_y+=32;
+		draw_text(_x, _y, "Run performed on version " + VERSION); 
+	}
 
 	draw_set_alpha(EndGraphicsFade);
 	draw_set_color(0);
