@@ -3,7 +3,6 @@
 
 if(InitNewDungeon){
 	array_push(global.CurrentSplits, Time_PlayingTotal())
-	global.PersonalBestSplits = array_push(EnterDungeonSplits, Time_PlayingTotal())
 	Time_PauseStart();
 	
 	if(Dungeon_IsSaveLevel(global.Level.Index + 1) && !global.SaveLevel){

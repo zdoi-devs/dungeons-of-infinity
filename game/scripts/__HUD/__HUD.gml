@@ -102,9 +102,9 @@ function HUD_SetPositions(_MainSide){
 		for(var i = 0; i < 3; i++){
 			CrystalsX[i] = MainSide + 12 + (i * 19);
 		}
-		
+		//precalculate main timer
 		TimerY = 205
-		TimerX = MainSide + 12
+		TimerX = MainSide + 9
 		
 		DungeonX = MapSide + 2;
 		DungeonY = 73;
@@ -127,9 +127,9 @@ function HUD_SetPositions(_MainSide){
 		DungeonIconsY[9] = DungeonIconsY[8] + 20; //Save 5
 		
 		// precalc split timers
-		SplitTimersX = DungeonX
+		SplitTimersX = DungeonX + 5
 		for(var i = 0; i < 12; i++){
-			SplitTimersY[i] = DungeonY + (i * 12)
+			SplitTimersY[i] = DungeonY + 8 + (i * 12)
 		}
 		
 	}
