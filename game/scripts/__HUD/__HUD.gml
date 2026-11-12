@@ -127,7 +127,7 @@ function HUD_SetPositions(_MainSide){
 		DungeonIconsY[9] = DungeonIconsY[8] + 20; //Save 5
 		
 		// precalc split timers
-		SplitTimersX = DungeonX + 4
+		SplitTimersX = DungeonX + 5
 		for(var i = 0; i < 12; i++){
 			SplitTimersY[i] = DungeonY + 8 + (i * 10)
 		}
