@@ -947,6 +947,7 @@
   "name":"Zelda",
   "resources":[
     {"id":{"name":"Font1","path":"fonts/Font1/Font1.yy",},},
+    {"id":{"name":"Font1Small","path":"fonts/Font1Small/Font1Small.yy",},},
     {"id":{"name":"Font2","path":"fonts/Font2/Font2.yy",},},
     {"id":{"name":"Notes","path":"notes/Notes/Notes.yy",},},
     {"id":{"name":"Sitting NPC Notes","path":"notes/Sitting NPC Notes/Sitting NPC Notes.yy",},},

@@ -1372,7 +1372,6 @@ function Dungeon_PickClass(_Level){
 }
 
 function Dungeon_PickTemplateIndex(_LevelIndex, _Class, _Transformation){
-	
 	if(_Class == DungeonClass.Special){
 		
 		if(global.SaveLevel) return 4

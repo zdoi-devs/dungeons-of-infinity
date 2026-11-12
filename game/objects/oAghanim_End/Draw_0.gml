@@ -28,6 +28,7 @@ if(EndGraphics){
 		_y+=32;
 		draw_text(_x, _y, "Run performed on version " + VERSION); 
 	}
+	global.PersonalBestSplits = array_push(global.PersonalBestSplits, Time_PlayingTotal())
 
 	draw_set_alpha(EndGraphicsFade);
 	draw_set_color(0);

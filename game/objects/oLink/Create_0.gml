@@ -2,6 +2,7 @@ visible = false; //visible set to false so DepthDrawObjs can sort and draw every
 
 Link_LoadCharacterIndex();
 
+global.CurrentSplits = [];
 
 keyUp = false;
 keyDown = false;
@@ -20,7 +21,7 @@ Action[ActionKey.Strafe] = false;
 DescendingPhase = 0;
 DescendingLocation = NONE;
 
-
+EnterDungeonSplits = [];
 MoveAssist = false;
 MoveAssistDir = NONE;
 MoveAssistWallInst = noone;

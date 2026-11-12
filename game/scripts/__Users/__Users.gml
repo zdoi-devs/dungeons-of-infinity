@@ -6,7 +6,7 @@ enum Stat{
 	Rupees,
 	Treasures,
 	BestTime,
-	Unused //leave space for future stats
+	PersonalBestSplits,
 }
 global.StatCount = 8;
 
@@ -91,6 +91,9 @@ function User_VerifyIntegrity(){
 		}
 	}else{
 		variable_struct_set(User, "Stats", array_create(global.StatCount));
+	}
+	if (User.Stats[7] == 0){
+		User.Stats[7] = []
 	}
 	
 	if(variable_struct_exists(User, "SaveData")){
@@ -367,6 +370,7 @@ function User_UpdateStats(){
 	if(global.Time_PlayingTotalEnd != 0){
 		if(_UserStats[Stat.BestTime] == 0 || global.Time_PlayingTotalEnd < _UserStats[Stat.BestTime]){
 			_UserStats[Stat.BestTime] = global.Time_PlayingTotalEnd;
+			_UserStats[Stat.PersonalBestSplits] = global.PersonalBestSplits;
 		}
 	}
 	

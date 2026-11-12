@@ -405,6 +405,7 @@
   ],
   "ResourceOrderSettings":[
     {"name":"Font1","order":4,"path":"fonts/Font1/Font1.yy",},
+    {"name":"Font1Small","order":8,"path":"fonts/Font1Small/Font1Small.yy",},
     {"name":"Font2","order":14,"path":"fonts/Font2/Font2.yy",},
     {"name":"Notes","order":17,"path":"notes/Notes/Notes.yy",},
     {"name":"Sitting NPC Notes","order":5,"path":"notes/Sitting NPC Notes/Sitting NPC Notes.yy",},

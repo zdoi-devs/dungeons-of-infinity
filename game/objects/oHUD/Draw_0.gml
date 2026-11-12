@@ -178,7 +178,12 @@ else{
 	draw_set_halign(fa_left);
 	draw_text(TimerX, TimerY, Time_Str(Time_PlayingTotal()));
 }
-
+//Split Timers
+if global.Speedrun{
+	for(var i = 0; i < array_length(global.CurrentSplits); i++){
+		draw_text(SplitTimersX, SplitTimersY[i], Time_Str(global.CurrentSplits[i]));
+	}
+}
 //Dungeon Icons
 	
 for(var i = oHUD.BossesDefeated; i < 3; i++){

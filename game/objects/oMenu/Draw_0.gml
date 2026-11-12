@@ -146,6 +146,7 @@ if(MenuWinInst_Options.visible){
 			draw_text(PosX, PosY, string(Stats[Stat.Monsters])); PosY+=16;
 			draw_text(PosX, PosY, string(Stats[Stat.Rupees])); PosY+=16;
 			draw_text(PosX, PosY, string(Stats[Stat.Treasures])); PosY+=16;
+			draw_text(PosX, PosY, Stats[Stat.PersonalBestSplits] == 0 ? "0" : Stats[Stat.PersonalBestSplits]); PosY+=16;
 			break;
 			
 	}
