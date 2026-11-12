@@ -2397,6 +2397,7 @@
     {"id":{"name":"sHUD_Shield","path":"sprites/sHUD_Shield/sHUD_Shield.yy",},},
     {"id":{"name":"sHUD_Side1","path":"sprites/sHUD_Side1/sHUD_Side1.yy",},},
     {"id":{"name":"sHUD_Side2","path":"sprites/sHUD_Side2/sHUD_Side2.yy",},},
+    {"id":{"name":"sHUD_Side2Alt","path":"sprites/sHUD_Side2Alt/sHUD_Side2Alt.yy",},},
     {"id":{"name":"sHUD_Skills","path":"sprites/sHUD_Skills/sHUD_Skills.yy",},},
     {"id":{"name":"sHUD_Sword","path":"sprites/sHUD_Sword/sHUD_Sword.yy",},},
     {"id":{"name":"sHUD_Tunic","path":"sprites/sHUD_Tunic/sHUD_Tunic.yy",},},

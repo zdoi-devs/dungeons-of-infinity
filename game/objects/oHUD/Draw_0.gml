@@ -123,7 +123,10 @@ draw_set_color(c_white);
 
 
 draw_sprite(sHUD_Side1, 0, MainSide + 3, 92);
-draw_sprite(sHUD_Side2, 0, MapSide + 2, 2);
+if global.Speedrun{
+	draw_sprite(sHUD_Side2Alt, 0, MapSide + 2, 2);
+}
+else draw_sprite(sHUD_Side2, 0, MapSide + 2, 2);
 
 
 //1st row
@@ -183,25 +186,28 @@ draw_set_font(global.Font_Small);
 draw_set_halign(fa_left);
 if global.Speedrun{
 	for(var i = 0; i < array_length(global.CurrentSplits); i++){
-		draw_text(SplitTimersX, SplitTimersY[i], Time_Str(global.CurrentSplits[i]));
+		if i == 0{
+			draw_text(SplitTimersX, SplitTimersY[i], Time_Str(global.CurrentSplits[i]));
+		}
+		else draw_text(SplitTimersX, SplitTimersY[i], Time_Str(global.CurrentSplits[i]-global.CurrentSplits[i-1]));
 	}
 }
 //Dungeon Icons
+if !global.Speedrun{
+	for(var i = oHUD.BossesDefeated; i < 3; i++){
+		draw_sprite(sHUD_DungeonIcons, 0, oHUD.DungeonIconsX, oHUD.DungeonIconsY[i]);
+	}
 	
-for(var i = oHUD.BossesDefeated; i < 3; i++){
-	draw_sprite(sHUD_DungeonIcons, 0, oHUD.DungeonIconsX, oHUD.DungeonIconsY[i]);
-}
-	
-draw_sprite(sHUD_DungeonIcons, 1, oHUD.DungeonIconsX, oHUD.DungeonIconsY[3]); //Village
-draw_sprite(sHUD_DungeonIcons, 2, oHUD.DungeonIconsX, oHUD.DungeonIconsY[4]); //Mines
+	draw_sprite(sHUD_DungeonIcons, 1, oHUD.DungeonIconsX, oHUD.DungeonIconsY[3]); //Village
+	draw_sprite(sHUD_DungeonIcons, 2, oHUD.DungeonIconsX, oHUD.DungeonIconsY[4]); //Mines
 //Saves
-for(var i = 5; i <= 9; i++){
-	draw_sprite(sHUD_DungeonIcons, 3, oHUD.DungeonIconsX_Save, oHUD.DungeonIconsY[i]);
-}
+	for(var i = 5; i <= 9; i++){
+		draw_sprite(sHUD_DungeonIcons, 3, oHUD.DungeonIconsX_Save, oHUD.DungeonIconsY[i]);
+	}
 
 //Dungeon Link
-draw_sprite(global.LinkSpr_DungeonIcon, 0, DungeonLinkX, DungeonLinkY);
-
+	draw_sprite(global.LinkSpr_DungeonIcon, 0, DungeonLinkX, DungeonLinkY);
+}
 //small map
 if(!global.MapHidden){
 	

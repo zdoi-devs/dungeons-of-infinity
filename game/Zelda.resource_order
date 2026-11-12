@@ -1633,6 +1633,7 @@
     {"name":"sHUD_Shield","order":11,"path":"sprites/sHUD_Shield/sHUD_Shield.yy",},
     {"name":"sHUD_Side1","order":3,"path":"sprites/sHUD_Side1/sHUD_Side1.yy",},
     {"name":"sHUD_Side2","order":4,"path":"sprites/sHUD_Side2/sHUD_Side2.yy",},
+    {"name":"sHUD_Side2Alt","order":12,"path":"sprites/sHUD_Side2Alt/sHUD_Side2Alt.yy",},
     {"name":"sHUD_Skills","order":12,"path":"sprites/sHUD_Skills/sHUD_Skills.yy",},
     {"name":"sHUD_Sword","order":21,"path":"sprites/sHUD_Sword/sHUD_Sword.yy",},
     {"name":"sHUD_Tunic","order":13,"path":"sprites/sHUD_Tunic/sHUD_Tunic.yy",},
