@@ -178,7 +178,7 @@ if !global.Speedrun{
 //Speedrun Timer
 else{
 	draw_set_font(global.MenuFont);
-	draw_set_halign(fa_left);
+	draw_set_halign(fa_right);
 	draw_text(TimerX, TimerY, Time_Str(Time_PlayingTotal()));
 }
 //Split Timers

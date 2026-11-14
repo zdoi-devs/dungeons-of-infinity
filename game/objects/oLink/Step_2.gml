@@ -2,13 +2,13 @@
 //only load new dungeon here since the activate_all needs to wait until the Step event is done to process
 
 if(InitNewDungeon){
-	array_push(global.CurrentSplits, Time_PlayingTotal())
 	Time_PauseStart();
 	
 	if(Dungeon_IsSaveLevel(global.Level.Index + 1) && !global.SaveLevel){
 		global.SaveLevel = true;
 		Dungeon_InitSaveLevel(global.Level.Index);
 	}else{
+		array_push(global.CurrentSplits, Time_PlayingTotal())
 		global.SaveLevel = false;
 		Dungeon_InitLevel(++global.Level.Index);		
 	}
