@@ -183,7 +183,7 @@ else{
 }
 //Split Timers
 draw_set_font(global.Font_Small);
-draw_set_halign(fa_left);
+draw_set_halign(fa_right);
 if global.Speedrun{
 	for(var i = 0; i < array_length(global.CurrentSplits); i++){
 		if i == 0{
@@ -191,6 +191,10 @@ if global.Speedrun{
 		}
 		else draw_text(SplitTimersX, SplitTimersY[i], Time_Str(global.CurrentSplits[i]-global.CurrentSplits[i-1]));
 	}
+	if (array_length(global.CurrentSplits) == 0){
+		draw_text(SplitTimersX, SplitTimersY[array_length(global.CurrentSplits)], Time_Str(Time_PlayingTotal()))
+	}
+	else draw_text(SplitTimersX, SplitTimersY[array_length(global.CurrentSplits)], Time_Str(Time_PlayingTotal()-global.CurrentSplits[array_length(global.CurrentSplits)-1]))
 }
 //Dungeon Icons
 if !global.Speedrun{
