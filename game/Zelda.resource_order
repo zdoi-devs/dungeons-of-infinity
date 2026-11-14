@@ -1593,6 +1593,8 @@
     {"name":"sFont_Green","order":5,"path":"sprites/sFont_Green/sFont_Green.yy",},
     {"name":"sFont_Grey","order":6,"path":"sprites/sFont_Grey/sFont_Grey.yy",},
     {"name":"sFont_ItemValues","order":2,"path":"sprites/sFont_ItemValues/sFont_ItemValues.yy",},
+    {"name":"sFont_Small_DarkGreen","order":10,"path":"sprites/sFont_Small_DarkGreen/sFont_Small_DarkGreen.yy",},
+    {"name":"sFont_Small_DarkRed","order":9,"path":"sprites/sFont_Small_DarkRed/sFont_Small_DarkRed.yy",},
     {"name":"sFrog","order":1,"path":"sprites/sFrog/sFrog.yy",},
     {"name":"sGameOver0","order":1,"path":"sprites/sGameOver0/sGameOver0.yy",},
     {"name":"sGameOver1","order":2,"path":"sprites/sGameOver1/sGameOver1.yy",},

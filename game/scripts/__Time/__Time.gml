@@ -41,7 +41,6 @@ function Time_Str(_Time){
 	}
 	
 	_TimeStr += ("." + ScoreText(_MSecs, 2));
-	
 	//if(_ShowDenom){
 	//	if(_ShowHours){
 	//		_TimeStr += " HRS";

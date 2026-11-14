@@ -170,6 +170,7 @@ for(var i = 0; i < PendantCount; i++)
 
 
 //Crystals
+ingame_time = Time_PlayingTotal()
 if !global.Speedrun{
 	for(var i = 0; i < 3; i++){
 		draw_sprite(sHUD_Crystal, ShowCrystals && i <= oHUD.BossesDefeated - 1 ? 1 : 0, CrystalsX[i], CrystalsY);
@@ -179,11 +180,12 @@ if !global.Speedrun{
 else{
 	draw_set_font(global.MenuFont);
 	draw_set_halign(fa_right);
-	draw_text(TimerX, TimerY, Time_Str(Time_PlayingTotal()));
+	draw_text(TimerX, TimerY, Time_Str(ingame_time));
 }
 //Split Timers
 draw_set_font(global.Font_Small);
 draw_set_halign(fa_right);
+debug_array = [10000000];
 if global.Speedrun{
 	for(var i = 0; i < array_length(global.CurrentSplits); i++){
 		if i == 0{
@@ -192,9 +194,19 @@ if global.Speedrun{
 		else draw_text(SplitTimersX, SplitTimersY[i], Time_Str(global.CurrentSplits[i]-global.CurrentSplits[i-1]));
 	}
 	if (array_length(global.CurrentSplits) == 0){
-		draw_text(SplitTimersX, SplitTimersY[array_length(global.CurrentSplits)], Time_Str(Time_PlayingTotal()))
+		draw_text(SplitTimersX, SplitTimersY[array_length(global.CurrentSplits)], Time_Str(ingame_time))
 	}
-	else draw_text(SplitTimersX, SplitTimersY[array_length(global.CurrentSplits)], Time_Str(Time_PlayingTotal()-global.CurrentSplits[array_length(global.CurrentSplits)-1]))
+	else draw_text(SplitTimersX, SplitTimersY[array_length(global.CurrentSplits)], Time_Str(ingame_time-global.CurrentSplits[array_length(global.CurrentSplits)-1]))
+	comparison_delta = ingame_time - debug_array[0]
+	if comparison_delta > 0 {
+		comparison_sign = "+"
+		draw_set_font(global.Font_Small_DarkRed)
+	}
+	else {
+		comparison_sign = "-"
+		draw_set_font(global.Font_Small_DarkGreen)
+	}
+	draw_text(SplitTimersX, SplitTimersY[array_length(global.CurrentSplits)+1], string_concat(comparison_sign, Time_Str(abs(comparison_delta))))
 }
 //Dungeon Icons
 if !global.Speedrun{
