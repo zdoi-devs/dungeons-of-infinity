@@ -374,6 +374,11 @@ function User_UpdateStats(){
 	if(global.Time_PlayingTotalEnd != 0){
 		if(_UserStats[Stat.BestTime] == 0 || global.Time_PlayingTotalEnd < _UserStats[Stat.BestTime]){
 			_UserStats[Stat.BestTime] = global.Time_PlayingTotalEnd;
+		}
+		if _UserStats[Stat.PersonalBestSplits] == 0{
+			_UserStats[Stat.PersonalBestSplits] = global.CurrentSplits;
+		}
+		else if global.CurrentSplits[11] < _UserStats[Stat.PersonalBestSplits][11]{
 			_UserStats[Stat.PersonalBestSplits] = global.CurrentSplits;
 		}
 	}

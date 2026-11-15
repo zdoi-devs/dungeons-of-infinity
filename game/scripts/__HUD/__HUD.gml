@@ -131,6 +131,7 @@ function HUD_SetPositions(_MainSide){
 		for(var i = 0; i < 12; i++){
 			SplitTimersY[i] = DungeonY + 8 + (i * 10)
 		}
+		SplitTimersY[12] = DungeonY + 133
 		
 	}
 

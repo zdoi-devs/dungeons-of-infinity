@@ -170,7 +170,7 @@ for(var i = 0; i < PendantCount; i++)
 
 
 //Store/precompute time
-if global.LinkDead == true{
+if global.LinkDead == true or global.GameBeaten == true{
 	ingame_time = ingame_time_storage
 }
 else {
@@ -202,10 +202,12 @@ if global.Speedrun{
 			else draw_text(SplitTimersX, SplitTimersY[i], Time_Str(global.CurrentSplits[i]-global.CurrentSplits[i-1]))
 		}
 		//draw upcoming split
-		if (array_length(global.CurrentSplits) == 0){
-			draw_text(SplitTimersX, SplitTimersY[array_length(global.CurrentSplits)], Time_Str(ingame_time))
+		if !(array_length(global.CurrentSplits) == 13){
+			if (array_length(global.CurrentSplits) == 0){
+				draw_text(SplitTimersX, SplitTimersY[array_length(global.CurrentSplits)], Time_Str(ingame_time))
+			}
+			else draw_text(SplitTimersX, SplitTimersY[array_length(global.CurrentSplits)], Time_Str(ingame_time-global.CurrentSplits[array_length(global.CurrentSplits)-1]))
 		}
-		else draw_text(SplitTimersX, SplitTimersY[array_length(global.CurrentSplits)], Time_Str(ingame_time-global.CurrentSplits[array_length(global.CurrentSplits)-1]))
 	}
 	//runs compairing to a PB
 	else {
