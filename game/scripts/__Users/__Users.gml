@@ -92,6 +92,9 @@ function User_VerifyIntegrity(){
 	}else{
 		variable_struct_set(User, "Stats", array_create(global.StatCount));
 	}
+	if User.Stats[7] = []{
+		User.Stats[7] = 0
+	}
 	if(variable_struct_exists(User, "SaveData")){
 		
 		if(is_struct(User.SaveData)){
