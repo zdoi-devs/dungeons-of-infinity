@@ -169,8 +169,15 @@ for(var i = 0; i < PendantCount; i++)
 	draw_sprite((global.Inventory.ItemData[ItemClass.Pendant].Owns[i] ? sHUD_Pendents : sHUD_Pendents_Grey), i, oHUD.PendantsX[i], oHUD.PendantsY[i]);
 
 
-//Crystals
+//Store/precompute time
+if global.LinkDead == true{
+	ingame_time = ingame_time_storage
+}
+else {
 ingame_time = Time_PlayingTotal()
+ingame_time_storage = ingame_time
+}
+//Crystals
 if !global.Speedrun{
 	for(var i = 0; i < 3; i++){
 		draw_sprite(sHUD_Crystal, ShowCrystals && i <= oHUD.BossesDefeated - 1 ? 1 : 0, CrystalsX[i], CrystalsY);
