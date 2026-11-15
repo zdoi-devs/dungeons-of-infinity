@@ -233,11 +233,13 @@ if global.Speedrun{
 		}
 		//otherwise, draw upcoming split time
 		else{
-			draw_set_font(global.Font_Small)
-			if (array_length(global.CurrentSplits) == 0){
-				draw_text(SplitTimersX, SplitTimersY[array_length(global.CurrentSplits)], Time_Str(ingame_time))
+			if !(array_length(global.CurrentSplits) == 13){
+				draw_set_font(global.Font_Small)
+				if (array_length(global.CurrentSplits) == 0){
+					draw_text(SplitTimersX, SplitTimersY[array_length(global.CurrentSplits)], Time_Str(ingame_time))
+				}
+				else draw_text(SplitTimersX, SplitTimersY[array_length(global.CurrentSplits)], Time_Str(ingame_time-global.CurrentSplits[array_length(global.CurrentSplits)-1]))
 			}
-			else draw_text(SplitTimersX, SplitTimersY[array_length(global.CurrentSplits)], Time_Str(ingame_time-global.CurrentSplits[array_length(global.CurrentSplits)-1]))
 		}
 	}
 }
