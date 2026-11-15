@@ -217,23 +217,55 @@ if global.Speedrun{
 		//compute and draw comparisons
 		for(var i = 0; i < current_splits_length; i++){
 			comparison_delta = current_splits[i] - personal_best_splits[i]
+			if i == 0{
+				personal_best_segment = personal_best_splits[i]
+				current_splits_segment = current_splits[i]
+			}
+			else{
+				personal_best_segment = personal_best_splits[i] - personal_best_splits[i-1]
+				current_splits_segment = current_splits[i]-current_splits[i-1]
+			}
 			if comparison_delta > 0 {
 				comparison_sign = "+"
-				draw_set_font(global.Font_Small_DarkRed)
+				if current_splits_segment > personal_best_segment{
+					draw_set_font(global.Font_Small_DarkRed)
+				}
+				else draw_set_font(global.Font_Small_LightRed)
 			}
 			else {
 				comparison_sign = "-"
-				draw_set_font(global.Font_Small_DarkGreen)
+				if current_splits_segment > personal_best_segment{
+					draw_set_font(global.Font_Small_LightGreen)
+				}
+				else draw_set_font(global.Font_Small_DarkGreen)
 			}
 			draw_text(SplitTimersX, SplitTimersY[i], string_concat(comparison_sign, Time_Str(abs(comparison_delta))))
 		}
 		//check if upcoming comparison is behind
 		if !(current_splits_length == 13){
 			comparison_delta = ingame_time - personal_best_splits[current_splits_length]
+			if current_splits_length == 0{
+				personal_best_segment = personal_best_splits[current_splits_length]
+				current_splits_segment = ingame_time
+			}
+			else{
+				personal_best_segment = personal_best_splits[current_splits_length] - personal_best_splits[current_splits_length-1]
+				current_splits_segment = ingame_time-current_splits[current_splits_length-1]
+			}
 			//draw upcoming comparison
-			if comparison_delta > 0{
-				draw_set_font(global.Font_Small_DarkRed)
-				draw_text(SplitTimersX, SplitTimersY[i], string_concat("+", Time_Str(abs(comparison_delta))))
+			if comparison_delta > 0 or current_splits_segment > personal_best_segment{
+				if comparison_delta > 0 {
+					comparison_sign = "+"
+					if current_splits_segment > personal_best_segment{
+						draw_set_font(global.Font_Small_DarkRed)
+					}
+					else draw_set_font(global.Font_Small_LightRed)
+				}
+				else {
+				comparison_sign = "-"
+				draw_set_font(global.Font_Small_LightGreen)
+				}
+				draw_text(SplitTimersX, SplitTimersY[current_splits_length], string_concat(comparison_sign, Time_Str(abs(comparison_delta))))
 			}
 		//otherwise, draw upcoming split time
 			else{

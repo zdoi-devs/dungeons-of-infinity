@@ -381,7 +381,7 @@ function User_UpdateStats(){
 		if _UserStats[Stat.PersonalBestSplits] == 0{
 			_UserStats[Stat.PersonalBestSplits] = global.CurrentSplits;
 		}
-		else if global.CurrentSplits[11] < _UserStats[Stat.PersonalBestSplits][11]{
+		else if global.CurrentSplits[12] < _UserStats[Stat.PersonalBestSplits][12]{
 			_UserStats[Stat.PersonalBestSplits] = global.CurrentSplits;
 		}
 	}
