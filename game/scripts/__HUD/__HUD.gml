@@ -104,7 +104,7 @@ function HUD_SetPositions(_MainSide){
 		}
 		//precalculate main timer
 		TimerY = 205
-		TimerX = MainSide + 65
+		TimerX = MainSide + 66
 		
 		DungeonX = MapSide + 2;
 		DungeonY = 73;
