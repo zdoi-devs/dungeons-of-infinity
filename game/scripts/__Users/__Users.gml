@@ -95,7 +95,6 @@ function User_VerifyIntegrity(){
 	if (User.Stats[7] == 0){
 		User.Stats[7] = []
 	}
-	
 	if(variable_struct_exists(User, "SaveData")){
 		
 		if(is_struct(User.SaveData)){
@@ -356,6 +355,14 @@ function User_Save(){
 	
 }
 
+function Load_PersonalBest(){
+	var _UserStats = global.Users[global.UserIndex].Stats
+	if _UserStats[Stat.BestTime] == 0{
+		global.PersonalBestSplits = 0
+	}
+	else global.PersonalBestSplits = _UserStats[Stat.PersonalBestSplits]
+}
+
 function User_UpdateStats(){
 	
 	var _UserStats = global.Users[global.UserIndex].Stats;
@@ -370,7 +377,7 @@ function User_UpdateStats(){
 	if(global.Time_PlayingTotalEnd != 0){
 		if(_UserStats[Stat.BestTime] == 0 || global.Time_PlayingTotalEnd < _UserStats[Stat.BestTime]){
 			_UserStats[Stat.BestTime] = global.Time_PlayingTotalEnd;
-			_UserStats[Stat.PersonalBestSplits] = global.PersonalBestSplits;
+			_UserStats[Stat.PersonalBestSplits] = global.CurrentSplits;
 		}
 	}
 	
