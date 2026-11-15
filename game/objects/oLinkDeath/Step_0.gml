@@ -33,6 +33,7 @@ if(FadeToGameOver){
 		if(Inventory_ItemExists(ItemClass.Pendant, Pendant.Revival) && !Curse_Check(CurseEffects.PendantsNoWork)){
 			alarm[5] = 40;
 		}else{
+			Time_PauseStart()
 			GameOver = true;
 			GameOverSeq = layer_sequence_create("System", oCamera.X, oCamera.Y, seqGameOver);
 			layer_sequence_play(GameOverSeq);

@@ -1590,6 +1590,7 @@
     {"name":"sFloorSwitch","order":1,"path":"sprites/sFloorSwitch/sFloorSwitch.yy",},
     {"name":"sFont_Black","order":7,"path":"sprites/sFont_Black/sFont_Black.yy",},
     {"name":"sFont_Blue","order":3,"path":"sprites/sFont_Blue/sFont_Blue.yy",},
+    {"name":"sFont_Green_Unprop","order":11,"path":"sprites/sFont_Green_Unprop/sFont_Green_Unprop.yy",},
     {"name":"sFont_Green","order":5,"path":"sprites/sFont_Green/sFont_Green.yy",},
     {"name":"sFont_Grey","order":6,"path":"sprites/sFont_Grey/sFont_Grey.yy",},
     {"name":"sFont_ItemValues","order":2,"path":"sprites/sFont_ItemValues/sFont_ItemValues.yy",},

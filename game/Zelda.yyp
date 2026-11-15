@@ -2348,6 +2348,7 @@
     {"id":{"name":"sFloorSwitch","path":"sprites/sFloorSwitch/sFloorSwitch.yy",},},
     {"id":{"name":"sFont_Black","path":"sprites/sFont_Black/sFont_Black.yy",},},
     {"id":{"name":"sFont_Blue","path":"sprites/sFont_Blue/sFont_Blue.yy",},},
+    {"id":{"name":"sFont_Green_Unprop","path":"sprites/sFont_Green_Unprop/sFont_Green_Unprop.yy",},},
     {"id":{"name":"sFont_Green","path":"sprites/sFont_Green/sFont_Green.yy",},},
     {"id":{"name":"sFont_Grey","path":"sprites/sFont_Grey/sFont_Grey.yy",},},
     {"id":{"name":"sFont_ItemValues","path":"sprites/sFont_ItemValues/sFont_ItemValues.yy",},},

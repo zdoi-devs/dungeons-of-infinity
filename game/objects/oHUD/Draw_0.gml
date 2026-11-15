@@ -178,7 +178,7 @@ if !global.Speedrun{
 }
 //Speedrun Timer
 else{
-	draw_set_font(global.MenuFont);
+	draw_set_font(global.MenuFontProp);
 	draw_set_halign(fa_right);
 	draw_text(TimerX, TimerY, Time_Str(ingame_time));
 }

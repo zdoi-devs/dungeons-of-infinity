@@ -39,6 +39,7 @@ global.LetterGridSpacingH = 18;
 global.LetterGridColumns = 13;
 global.LetterGridRows = 6;
 global.MenuFont = font_add_sprite(sFont_Green, ord(" "), true, 0);
+global.MenuFontProp = font_add_sprite(sFont_Green_Unprop, ord(" "), false, 0);
 global.MenuFont_Innactive = font_add_sprite(sFont_Grey, ord(" "), true, 0);
 global.MenuFont_Innactive2 = font_add_sprite(sFont_Black, ord(" "), true, 0);
 
