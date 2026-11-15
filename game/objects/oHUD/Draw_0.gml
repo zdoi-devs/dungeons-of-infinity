@@ -169,7 +169,7 @@ for(var i = 0; i < PendantCount; i++)
 	draw_sprite((global.Inventory.ItemData[ItemClass.Pendant].Owns[i] ? sHUD_Pendents : sHUD_Pendents_Grey), i, oHUD.PendantsX[i], oHUD.PendantsY[i]);
 
 
-//Store/precompute time
+//Store/precompute speedrun data
 if global.LinkDead == true or global.GameBeaten == true{
 	ingame_time = ingame_time_storage
 }
@@ -177,6 +177,9 @@ else {
 ingame_time = Time_PlayingTotal()
 ingame_time_storage = ingame_time
 }
+current_splits = global.CurrentSplits
+current_splits_length = array_length(current_splits)
+personal_best_splits = global.PersonalBestSplits
 //Crystals
 if !global.Speedrun{
 	for(var i = 0; i < 3; i++){
@@ -194,26 +197,26 @@ draw_set_font(global.Font_Small);
 draw_set_halign(fa_right);
 if global.Speedrun{
 	//first clean run
-	if global.PersonalBestSplits == 0{
-		for(var i = 0; i < array_length(global.CurrentSplits); i++){
+	if personal_best_splits == 0{
+		for(var i = 0; i < current_splits_length; i++){
 			if i == 0{
-				draw_text(SplitTimersX, SplitTimersY[i], Time_Str(global.CurrentSplits[i]));
+				draw_text(SplitTimersX, SplitTimersY[i], Time_Str(current_splits[i]));
 			}
-			else draw_text(SplitTimersX, SplitTimersY[i], Time_Str(global.CurrentSplits[i]-global.CurrentSplits[i-1]))
+			else draw_text(SplitTimersX, SplitTimersY[i], Time_Str(current_splits[i]-current_splits[i-1]))
 		}
 		//draw upcoming split
-		if !(array_length(global.CurrentSplits) == 13){
-			if (array_length(global.CurrentSplits) == 0){
-				draw_text(SplitTimersX, SplitTimersY[array_length(global.CurrentSplits)], Time_Str(ingame_time))
+		if !(current_splits_length == 13){
+			if (current_splits_length == 0){
+				draw_text(SplitTimersX, SplitTimersY[current_splits_length], Time_Str(ingame_time))
 			}
-			else draw_text(SplitTimersX, SplitTimersY[array_length(global.CurrentSplits)], Time_Str(ingame_time-global.CurrentSplits[array_length(global.CurrentSplits)-1]))
+			else draw_text(SplitTimersX, SplitTimersY[current_splits_length], Time_Str(ingame_time-current_splits[current_splits_length-1]))
 		}
 	}
 	//runs compairing to a PB
 	else {
 		//compute and draw comparisons
-		for(var i = 0; i < array_length(global.CurrentSplits); i++){
-			comparison_delta = global.CurrentSplits[i] - global.PersonalBestSplits[i]
+		for(var i = 0; i < current_splits_length; i++){
+			comparison_delta = current_splits[i] - personal_best_splits[i]
 			if comparison_delta > 0 {
 				comparison_sign = "+"
 				draw_set_font(global.Font_Small_DarkRed)
@@ -225,20 +228,20 @@ if global.Speedrun{
 			draw_text(SplitTimersX, SplitTimersY[i], string_concat(comparison_sign, Time_Str(abs(comparison_delta))))
 		}
 		//check if upcoming comparison is behind
-		comparison_delta = ingame_time - global.PersonalBestSplits[array_length(global.CurrentSplits)]
-		if comparison_delta > 0{
-			//if so, draw it
-			draw_set_font(global.Font_Small_DarkRed)
-			draw_text(SplitTimersX, SplitTimersY[i], string_concat("+", Time_Str(abs(comparison_delta))))
-		}
+		if !(current_splits_length == 13){
+			comparison_delta = ingame_time - personal_best_splits[current_splits_length]
+			//draw upcoming comparison
+			if comparison_delta > 0{
+				draw_set_font(global.Font_Small_DarkRed)
+				draw_text(SplitTimersX, SplitTimersY[i], string_concat("+", Time_Str(abs(comparison_delta))))
+			}
 		//otherwise, draw upcoming split time
-		else{
-			if !(array_length(global.CurrentSplits) == 13){
+			else{
 				draw_set_font(global.Font_Small)
-				if (array_length(global.CurrentSplits) == 0){
-					draw_text(SplitTimersX, SplitTimersY[array_length(global.CurrentSplits)], Time_Str(ingame_time))
+				if (current_splits_length == 0){
+					draw_text(SplitTimersX, SplitTimersY[current_splits_length], Time_Str(ingame_time))
 				}
-				else draw_text(SplitTimersX, SplitTimersY[array_length(global.CurrentSplits)], Time_Str(ingame_time-global.CurrentSplits[array_length(global.CurrentSplits)-1]))
+				else draw_text(SplitTimersX, SplitTimersY[current_splits_length], Time_Str(ingame_time-current_splits[current_splits_length-1]))
 			}
 		}
 	}
