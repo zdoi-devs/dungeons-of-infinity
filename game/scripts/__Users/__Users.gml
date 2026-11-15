@@ -7,8 +7,9 @@ enum Stat{
 	Treasures,
 	BestTime,
 	PersonalBestSplits,
+	BestSegments,
 }
-global.StatCount = 8;
+global.StatCount = 9;
 
 enum Pref{
 	SFX,
@@ -92,9 +93,24 @@ function User_VerifyIntegrity(){
 	}else{
 		variable_struct_set(User, "Stats", array_create(global.StatCount));
 	}
-	if User.Stats[7] = []{
+	if User.Stats[7] == []{
 		User.Stats[7] = 0
 	}
+	if User.Stats[8] == 0{
+		User.Stats[8] = array_create(13)
+	}
+	//append personal best splits to best times if there is a personal best but no best times
+	if !(User.Stats[7] == 0){
+			for(var i = 0; i < 13; i++){
+				if User.Stats[8][i] == 0{
+					if i == 0{
+						User.Stats[8][0] = User.Stats[7][0]
+					}
+					else User.Stats[8][i] = User.Stats[7][i] - User.Stats[7][i-1]
+				}
+			}
+	}
+	
 	if(variable_struct_exists(User, "SaveData")){
 		
 		if(is_struct(User.SaveData)){
@@ -361,6 +377,7 @@ function Load_PersonalBest(){
 		global.PersonalBestSplits = 0
 	}
 	else global.PersonalBestSplits = _UserStats[Stat.PersonalBestSplits]
+	global.BestSegmentTimes = _UserStats[Stat.BestSegments]
 }
 
 function User_UpdateStats(){
@@ -385,6 +402,15 @@ function User_UpdateStats(){
 			_UserStats[Stat.PersonalBestSplits] = global.CurrentSplits;
 		}
 	}
+	
+	for(var i = 0; i < array_length(global.CurrentSplits); i++){
+			if _UserStats[Stat.BestSegments][i] > global.CurrentSplits[i] or _UserStats[Stat.BestSegments][i] == 0{
+				if i == 0{
+					_UserStats[Stat.BestSegments][i] = global.CurrentSplits[i]
+				} 
+				else _UserStats[Stat.BestSegments][i] = global.CurrentSplits[i] - global.CurrentSplits[i-1]
+			}
+		}
 	
 	global.StatsToAdd = 0; global.StatsToAdd = array_create(global.StatCount); 
 	

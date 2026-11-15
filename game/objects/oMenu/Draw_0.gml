@@ -130,23 +130,33 @@ if(MenuWinInst_Options.visible){
 			
 			draw_text(PosX, PosY, "Games Played:"); PosY+=16;
 			draw_text(PosX, PosY, "Games Won:"); PosY+=16;
-			draw_text(PosX, PosY, "Best Time:"); PosY+=16;
 			draw_text(PosX, PosY, "Deaths:"); PosY+=16;
 			draw_text(PosX, PosY, "Monsters Killed:"); PosY+=16;
 			draw_text(PosX, PosY, "Rupees Collected:"); PosY+=16;
 			draw_text(PosX, PosY, "Treasures Opened:"); PosY+=16;
+			draw_text(PosX, PosY, "Best Time:"); PosY+=16;
+			draw_text(PosX, PosY, "Sum of Best Floors:"); PosY+=16;
+			
+			//compute sum of best
+			if !(array_contains(Stats[Stat.BestSegments], 0)) and (SoB_debounce == false){
+				sum_of_best = 0
+				for(var i = 0; i < 13; i++){
+					sum_of_best += Stats[Stat.BestSegments][i]
+				}
+				SoB_debounce = true
+			}
 			
 			draw_set_halign(fa_left);
 			PosX = MenuWinInst_Options.x + 116;
 			PosY = MenuWinInst_Options.y + 14;
 			draw_text(PosX, PosY, string(Stats[Stat.GamesPlayed])); PosY+=16;
 			draw_text(PosX, PosY, string(Stats[Stat.GamesWon])); PosY+=16;
-			draw_text(PosX, PosY, Stats[Stat.BestTime] == 0 ? "0" : Time_Str(Stats[Stat.BestTime])); PosY+=16;
 			draw_text(PosX, PosY, string(Stats[Stat.Deaths])); PosY+=16;
 			draw_text(PosX, PosY, string(Stats[Stat.Monsters])); PosY+=16;
 			draw_text(PosX, PosY, string(Stats[Stat.Rupees])); PosY+=16;
 			draw_text(PosX, PosY, string(Stats[Stat.Treasures])); PosY+=16;
-			draw_text(PosX, PosY, Stats[Stat.PersonalBestSplits] == 0 ? "0" : Stats[Stat.PersonalBestSplits]); PosY+=16;
+			draw_text(PosX, PosY, Stats[Stat.BestTime] == 0 ? "0" : Time_Str(Stats[Stat.BestTime])); PosY+=16;
+			draw_text(PosX, PosY, array_contains(Stats[Stat.BestSegments], 0) ? "0" : Time_Str(sum_of_best)); PosY+=16;
 			break;
 			
 	}

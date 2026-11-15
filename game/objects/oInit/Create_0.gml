@@ -4,6 +4,7 @@ global.Font_Small_LightRed = font_add_sprite_ext(sFont_Small_LightRed, " .,!?':;
 global.Font_Small_DarkRed = font_add_sprite_ext(sFont_Small_DarkRed, " .,!?':;-+*=<>()[]\\/_0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ", true, 1);
 global.Font_Small_LightGreen = font_add_sprite_ext(sFont_Small_LightGreen, " .,!?':;-+*=<>()[]\\/_0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ", true, 1);
 global.Font_Small_DarkGreen = font_add_sprite_ext(sFont_Small_DarkGreen, " .,!?':;-+*=<>()[]\\/_0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ", true, 1);
+global.Font_Small_Gold = font_add_sprite_ext(sFont_Small_Gold, " .,!?':;-+*=<>()[]\\/_0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ", true, 1);
 global.FontNumbers = font_add_sprite_ext(sHUD_Numbers, "0123456789", false, 0);
 
 var _Date = date_current_datetime();

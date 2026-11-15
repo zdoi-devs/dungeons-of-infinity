@@ -2354,6 +2354,7 @@
     {"id":{"name":"sFont_ItemValues","path":"sprites/sFont_ItemValues/sFont_ItemValues.yy",},},
     {"id":{"name":"sFont_Small_DarkGreen","path":"sprites/sFont_Small_DarkGreen/sFont_Small_DarkGreen.yy",},},
     {"id":{"name":"sFont_Small_DarkRed","path":"sprites/sFont_Small_DarkRed/sFont_Small_DarkRed.yy",},},
+    {"id":{"name":"sFont_Small_Gold","path":"sprites/sFont_Small_Gold/sFont_Small_Gold.yy",},},
     {"id":{"name":"sFont_Small_LightGreen","path":"sprites/sFont_Small_LightGreen/sFont_Small_LightGreen.yy",},},
     {"id":{"name":"sFont_Small_LightRed","path":"sprites/sFont_Small_LightRed/sFont_Small_LightRed.yy",},},
     {"id":{"name":"sFont_Small","path":"sprites/sFont_Small/sFont_Small.yy",},},

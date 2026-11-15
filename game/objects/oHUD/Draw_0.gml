@@ -180,6 +180,7 @@ ingame_time_storage = ingame_time
 current_splits = global.CurrentSplits
 current_splits_length = array_length(current_splits)
 personal_best_splits = global.PersonalBestSplits
+best_segment_times = global.BestSegmentTimes
 //Crystals
 if !global.Speedrun{
 	for(var i = 0; i < 3; i++){
@@ -235,9 +236,12 @@ if global.Speedrun{
 			else {
 				comparison_sign = "-"
 				if current_splits_segment > personal_best_segment{
-					draw_set_font(global.Font_Small_LightGreen)
+					draw_set_font(global.Font_Small_DarkGreen)
 				}
-				else draw_set_font(global.Font_Small_DarkGreen)
+				else draw_set_font(global.Font_Small_LightGreen)
+			}
+			if best_segment_times[i] > current_splits_segment{
+				draw_set_font(global.Font_Small_Gold)
 			}
 			draw_text(SplitTimersX, SplitTimersY[i], string_concat(comparison_sign, Time_Str(abs(comparison_delta))))
 		}
@@ -263,7 +267,7 @@ if global.Speedrun{
 				}
 				else {
 				comparison_sign = "-"
-				draw_set_font(global.Font_Small_LightGreen)
+				draw_set_font(global.Font_Small_DarkGreen)
 				}
 				draw_text(SplitTimersX, SplitTimersY[current_splits_length], string_concat(comparison_sign, Time_Str(abs(comparison_delta))))
 			}

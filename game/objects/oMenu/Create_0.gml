@@ -30,6 +30,7 @@ MenuWin_Options_MenuIndex = MenuIndex.Options;
 MenuWin_Options_Active = false;
 
 ErrorMsgInst = noone;
+SoB_debounce = false;
 
 var _CreateNewFile = false;
 if(file_exists(USERSFILE)){
