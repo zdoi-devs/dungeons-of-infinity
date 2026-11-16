@@ -93,14 +93,18 @@ function User_VerifyIntegrity(){
 	}else{
 		variable_struct_set(User, "Stats", array_create(global.StatCount));
 	}
-	if User.Stats[7] == []{
+	if (is_array(User.Stats[7])) and (array_length(User.Stats[7]) == 0){
 		User.Stats[7] = 0
 	}
-	if User.Stats[8] == 0{
-		User.Stats[8] = array_create(13)
+	if (!is_array(User.Stats[8]) || array_length(User.Stats[8]) < 13) {
+		if (User.Stats[8] == 0) {
+			User.Stats[8] = array_create(13, 0);
+		} else if (is_array(User.Stats[8])) {
+			array_resize(User.Stats[8], 13);
+		}
 	}
 	//append personal best splits to best times if there is a personal best but no best times
-	if !(User.Stats[7] == 0){
+	if (array_length(User.Stats[7]) == 13){
 			for(var i = 0; i < 13; i++){
 				if User.Stats[8][i] == 0{
 					if i == 0{
