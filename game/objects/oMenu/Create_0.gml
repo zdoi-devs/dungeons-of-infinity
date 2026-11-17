@@ -258,6 +258,7 @@ Menu_Create(MenuIndex.Settings, "Settings", [
 	Menu_GlobalSlider("Sound Volume", "SFXVol", 0, 1, User_UpdateMusicSFX, true),
 	Menu_GlobalToggle("Fullscreen", "Fullscreen", function(){ window_set_fullscreen(global.Fullscreen); }),
 	Menu_GlobalToggle("Speedrunning Mode", "Speedrun"),
+	Menu_GlobalToggle("Equip on Hover", "HoverEquip"),
 	Menu_GlobalToggle("Gore", "Gore"),
 	Menu_GlobalToggle("Lighting", "GlobalLighting"),
 	Menu_GlobalToggle("Alt-Tab Pause", "AltTabPause"),

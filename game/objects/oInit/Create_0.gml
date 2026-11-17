@@ -29,6 +29,7 @@ global.Gamepad_AnalogueThreshold = ini_read_real("Controls", "AnalogueThreshold"
 
 global.Gore = ini_read_real("Preferences", "Gore", 1) == 1 ? true : false;
 global.Speedrun = ini_read_real("Preferences", "Speedrun", 0) == 1 ? true : false;
+global.HoverEquip = ini_read_real("Preferences", "HoverEquip", 0) == 1 ? true : false;
 global.GlobalLighting = ini_read_real("Preferences", "Lighting", 1) == 1 ? true : false;
 global.AltTabPause = ini_read_real("Preferences", "AltTabPause", 1) == 1 ? true : false;
 global.SaveVersionCheck = ini_read_real("Preferences", "SaveVersionCheck", 1) == 1 ? true : false;
