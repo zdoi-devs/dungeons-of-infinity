@@ -26,7 +26,7 @@ if(EndGraphics){
 	draw_text(_x, _y, "Total time: " + Time_Str(global.Time_PlayingTotalEnd)); 
 	if global.Speedrun{
 		_y+=16;
-		draw_text(_x, _y, "Run performed on version " + VERSION); 
+		draw_text(_x, _y, "Run performed on version " + VERSION + "."); 
 	}
 
 	draw_set_alpha(EndGraphicsFade);

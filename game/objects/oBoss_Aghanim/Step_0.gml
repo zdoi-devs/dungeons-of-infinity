@@ -79,7 +79,7 @@ if(Energy <= 4){
 if(State != EnemyState.Killed && Energy <= 0){
 	
 	global.Time_PlayingTotalEnd = Time_PlayingTotal();
-	array_push(global.CurrentSplits, Time_PlayingTotal())
+	array_push(global.CurrentSplits, global.Time_PlayingTotalEnd)
 	global.GameBeaten = true;
 	
 	Enemy_UpdateState(EnemyState.Killed);

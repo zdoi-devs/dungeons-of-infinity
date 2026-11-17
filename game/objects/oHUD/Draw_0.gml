@@ -170,12 +170,15 @@ for(var i = 0; i < PendantCount; i++)
 
 
 //Store/precompute speedrun data
-if global.LinkDead == true or global.GameBeaten == true{
+if global.LinkDead == true{
 	ingame_time = ingame_time_storage
 }
 else {
 ingame_time = Time_PlayingTotal()
 ingame_time_storage = ingame_time
+}
+if global.GameBeaten{
+	ingame_time = global.Time_PlayingTotalEnd
 }
 current_splits = global.CurrentSplits
 current_splits_length = array_length(current_splits)
@@ -200,17 +203,13 @@ if global.Speedrun{
 	//first clean run
 	if personal_best_splits == 0{
 		for(var i = 0; i < current_splits_length; i++){
-			if i == 0{
-				draw_text(SplitTimersX, SplitTimersY[i], Time_Str(current_splits[i]));
-			}
-			else draw_text(SplitTimersX, SplitTimersY[i], Time_Str(current_splits[i]-current_splits[i-1]))
+			time_string = (i == 0) ? current_splits[i] : (current_splits[i]-current_splits[i-1])
+			draw_text(SplitTimersX, SplitTimersY[i], Time_Str(time_string))
 		}
 		//draw upcoming split
 		if !(current_splits_length == 13){
-			if (current_splits_length == 0){
-				draw_text(SplitTimersX, SplitTimersY[current_splits_length], Time_Str(ingame_time))
-			}
-			else draw_text(SplitTimersX, SplitTimersY[current_splits_length], Time_Str(ingame_time-current_splits[current_splits_length-1]))
+			time_string = (current_splits_length == 0) ? ingame_time : (ingame_time-current_splits[current_splits_length-1])
+			draw_text(SplitTimersX, SplitTimersY[current_splits_length], Time_Str(time_string))
 		}
 	}
 	//runs compairing to a PB
@@ -218,14 +217,8 @@ if global.Speedrun{
 		//compute and draw comparisons
 		for(var i = 0; i < current_splits_length; i++){
 			comparison_delta = current_splits[i] - personal_best_splits[i]
-			if i == 0{
-				personal_best_segment = personal_best_splits[i]
-				current_splits_segment = current_splits[i]
-			}
-			else{
-				personal_best_segment = personal_best_splits[i] - personal_best_splits[i-1]
-				current_splits_segment = current_splits[i]-current_splits[i-1]
-			}
+			personal_best_segment = (i == 0) ? personal_best_splits[i] : (personal_best_splits[i] - personal_best_splits[i-1])
+			current_splits_segment = (i == 0) ? current_splits[i] : (current_splits[i]-current_splits[i-1])
 			if comparison_delta > 0 {
 				comparison_sign = "+"
 				if current_splits_segment > personal_best_segment{
@@ -240,7 +233,7 @@ if global.Speedrun{
 				}
 				else draw_set_font(global.Font_Small_LightGreen)
 			}
-			if best_segment_times[i] > current_splits_segment{
+			if best_segment_times[i] >= current_splits_segment{
 				draw_set_font(global.Font_Small_Gold)
 			}
 			draw_text(SplitTimersX, SplitTimersY[i], string_concat(comparison_sign, Time_Str(abs(comparison_delta))))
@@ -248,14 +241,8 @@ if global.Speedrun{
 		//check if upcoming comparison is behind
 		if !(current_splits_length == 13){
 			comparison_delta = ingame_time - personal_best_splits[current_splits_length]
-			if current_splits_length == 0{
-				personal_best_segment = personal_best_splits[current_splits_length]
-				current_splits_segment = ingame_time
-			}
-			else{
-				personal_best_segment = personal_best_splits[current_splits_length] - personal_best_splits[current_splits_length-1]
-				current_splits_segment = ingame_time-current_splits[current_splits_length-1]
-			}
+			personal_best_segment = (current_splits_length == 0) ? personal_best_splits[current_splits_length] : (personal_best_splits[current_splits_length] - personal_best_splits[current_splits_length-1])
+			current_splits_segment = (current_splits_length == 0) ? ingame_time : (ingame_time-current_splits[current_splits_length-1])
 			//draw upcoming comparison
 			if comparison_delta > 0 or current_splits_segment > personal_best_segment{
 				if comparison_delta > 0 {
@@ -266,18 +253,25 @@ if global.Speedrun{
 					else draw_set_font(global.Font_Small_LightRed)
 				}
 				else {
-				comparison_sign = "-"
-				draw_set_font(global.Font_Small_DarkGreen)
+					comparison_sign = "-"
+					draw_set_font(global.Font_Small_DarkGreen)
 				}
 				draw_text(SplitTimersX, SplitTimersY[current_splits_length], string_concat(comparison_sign, Time_Str(abs(comparison_delta))))
 			}
 		//otherwise, draw upcoming split time
 			else{
-				draw_set_font(global.Font_Small)
-				if (current_splits_length == 0){
-					draw_text(SplitTimersX, SplitTimersY[current_splits_length], Time_Str(ingame_time))
+				if !(current_splits_length == 12){
+					draw_set_font(global.Font_Small)
+					if (current_splits_length == 0){
+						draw_text(SplitTimersX, SplitTimersY[current_splits_length], Time_Str(ingame_time))
+					}
+					else draw_text(SplitTimersX, SplitTimersY[current_splits_length], Time_Str(ingame_time-current_splits[current_splits_length-1]))
 				}
-				else draw_text(SplitTimersX, SplitTimersY[current_splits_length], Time_Str(ingame_time-current_splits[current_splits_length-1]))
+			}
+			//draw personal best
+			if !(comparison_delta > 0 or current_splits_segment > personal_best_segment){
+				draw_set_font(global.Font_Small)
+				draw_text(SplitTimersX, SplitTimersY[12], Time_Str(personal_best_splits[12]))
 			}
 		}
 	}

@@ -1,4 +1,4 @@
-
+ingame_time_storage = 0
 MainAlpha = 1;
 EndingAlpha = 0;
 

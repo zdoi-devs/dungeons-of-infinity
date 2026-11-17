@@ -1,4 +1,3 @@
-
 Time_PauseStart();
 TimePlayed = Time_Str(Time_PlayingTotal());
 

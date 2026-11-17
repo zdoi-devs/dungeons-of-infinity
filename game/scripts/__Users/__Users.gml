@@ -99,7 +99,8 @@ function User_VerifyIntegrity(){
 	if (!is_array(User.Stats[8]) || array_length(User.Stats[8]) < 13) {
 		if (User.Stats[8] == 0) {
 			User.Stats[8] = array_create(13, 0);
-		} else if (is_array(User.Stats[8])) {
+		} 
+		else if (is_array(User.Stats[8])) {
 			array_resize(User.Stats[8], 13);
 		}
 	}
@@ -408,11 +409,9 @@ function User_UpdateStats(){
 	}
 	
 	for(var i = 0; i < array_length(global.CurrentSplits); i++){
-			if _UserStats[Stat.BestSegments][i] > global.CurrentSplits[i] or _UserStats[Stat.BestSegments][i] == 0{
-				if i == 0{
-					_UserStats[Stat.BestSegments][i] = global.CurrentSplits[i]
-				} 
-				else _UserStats[Stat.BestSegments][i] = global.CurrentSplits[i] - global.CurrentSplits[i-1]
+		var current_segment_time = (i == 0) ? global.CurrentSplits[i] : (global.CurrentSplits[i] - global.CurrentSplits[i - 1]);
+			if (_UserStats[Stat.BestSegments][i] > current_segment_time or _UserStats[Stat.BestSegments][i] == 0){
+				_UserStats[Stat.BestSegments][i] = current_segment_time
 			}
 		}
 	

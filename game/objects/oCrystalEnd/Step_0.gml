@@ -65,7 +65,9 @@ if(AttackScreenFade <= 0){
 	AttackScreenFade = 0;
 	AttackScreenFadeDir = 0;
 	if(AttackTurn == 3){
-		oFinalBossGate.Destroyed = true;
+		if instance_exists(oFinalBossGate){
+			oFinalBossGate.Destroyed = true;
+		}
 		with(oLink) UpdateState(LinkState.Standing);
 		instance_destroy(id);
 	}
