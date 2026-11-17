@@ -115,7 +115,7 @@ array_push(TextArray, "thank you very much for playing!");
 
 repeat(1) array_push(TextArray, "");
 array_push(TextArray, "Justin Bohemier 2024");
-array_push(TextArray, "discord.gg/doi");
+array_push(TextArray, "discord.gg/2FY2G63VXa ");
 
 TextArrayLen = array_length(TextArray);
 
