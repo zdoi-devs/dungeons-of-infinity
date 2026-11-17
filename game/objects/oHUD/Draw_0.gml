@@ -292,6 +292,13 @@ if !global.Speedrun{
 //Dungeon Link
 	draw_sprite(global.LinkSpr_DungeonIcon, 0, DungeonLinkX, DungeonLinkY);
 }
+else{
+	for(var i = 0; i < 3; i++){
+	draw_sprite(sHUD_DungeonIcons, 0, oHUD.DungeonIconsX + 31, oHUD.DungeonIconsY[i]);
+	}
+	draw_sprite(sHUD_DungeonIcons, 1, oHUD.DungeonIconsX + 31, oHUD.DungeonIconsY[3]); //Village
+	draw_sprite(sHUD_DungeonIcons, 2, oHUD.DungeonIconsX + 31, oHUD.DungeonIconsY[4]); //Mines
+}
 //small map
 if(!global.MapHidden){
 	
