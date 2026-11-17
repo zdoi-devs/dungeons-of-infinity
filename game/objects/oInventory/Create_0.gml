@@ -73,7 +73,7 @@ for(var _BagIndex = 0; _BagIndex < Inventory_Bags; _BagIndex++){
 
 }
 
-
+hover_debounce = true
 MenuEnable = false;
 
 MenuItems = 4;

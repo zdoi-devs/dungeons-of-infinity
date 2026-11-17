@@ -126,27 +126,32 @@ if(!DB_Started && !instance_exists(global.DB_Inst)){
 		if(input_check_pressed("up")){
 
 			Inventory_SetSelector(UP);
+			hover_debounce = true
 			
 		}else if(input_check_pressed("down")){
 
 			Inventory_SetSelector(DOWN);
+			hover_debounce = true
 			
 		}else if(input_check_pressed("left")){
 				
 			Inventory_SetSelector(LEFT);
+			hover_debounce = true
 			
 		}else if(input_check_pressed("right")){
 				
 			Inventory_SetSelector(RIGHT);
+			hover_debounce = true
 			
 		}else if(ItemClassSelected != -1){
 			
-			if(global.HoverEquip == true && global.ItemData[ItemClassSelected].CanEquip){
+			if(global.HoverEquip == true && hover_debounce == true && global.ItemData[ItemClassSelected].CanEquip){
 				
 				global.Inventory.SlotEquiped[0] = _BagIndexSelected;
 				global.Inventory.SlotEquiped[1] = _SlotIndexSelected;
 				audio_play_sound(Sound_TextDone, 1, false);	
-	
+				hover_debounce = false
+				
 			}else if(input_check_pressed("item") && global.ItemData[ItemClassSelected].CanEquip){
 				
 				global.Inventory.SlotEquiped[0] = _BagIndexSelected;
