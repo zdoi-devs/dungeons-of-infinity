@@ -1,5 +1,31 @@
 Change Log:
 
+Version 1.2.2 CE:
+
+Changes:
+-Settings in "options.ini" can now be changed through the game's options menu.
+-Added "Speedrunning Mode", a new option, which has the following effects when enabled:
+	-Crystals on the bottom left of the HUD are replaced with the ingame timer.
+	-The rightside HUD has timers for time spent on each floor and some non-important information has been removed.
+	-If the game has been beaten once in this update, floor timers are replaced with a comparison against your overrall time in your best run at the end of the floor.
+		-If you're ahead of your overrall best time and ahead of best time's floor time, the floor's text will be light green.
+		-If you're ahead of your overrall best time and behind of best time's floor time, the floor's text will be dark green.
+		-If you're behind of your overrall best time and ahead of best time's floor time, the floor's text will be light red.
+		-If you're behind your overrall best time and behind of best time's floor time, the floor's text will be dark red.
+	-Your best ever time on a floor is also saved and the floor's timer text will be gold if you do get a new best ever time.
+	-The "stats" screen now has a Sum of Best floors stats which displays the sum of your best floor times.
+	-Aghanim's textboxes have been removed.
+	-The end screen now displays a text showing the game's version.
+-Added "Equip on Hover", a new option, which allows you to equip items by simply hovering on them when enabled, like in A Link to The Past.
+-Added a "Cheats" tab which has numerous options to mess around with cheats:
+	-Ability to give yourself an infinite amount of health, arrows, bombs and rupees.
+	-Ability to give yourself the maximum sword, glove, shield and tunic.
+	-Ability to give yourself items such as pendants, quiver, bags and more.
+	
+Bug fixes:
+-Stats are now fetched properly.
+-Numerous fixes related to speedrunning.
+
 Version 1.2.1:
 
 Changes:
