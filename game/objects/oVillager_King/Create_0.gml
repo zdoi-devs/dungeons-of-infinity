@@ -19,7 +19,6 @@ Reveal = false;
 Revealed = false;
 Sleep = false;
 SleepDone = false;
-DialogueSkipOnce = false;
 DialogueIgnore =  true;
 
 

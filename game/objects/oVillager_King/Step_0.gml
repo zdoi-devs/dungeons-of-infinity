@@ -87,18 +87,6 @@ HoverY = dsin(HoverFrame) * 3;
 
 if(DB_Init_GrandChild){
 	DB_Init_GrandChild = false;
-	if (Inventory_ItemExists(ItemClass.Medallion) && global.Speedrun){
-		global.Paused = true;
-		with(oLink){					
-			var inst = instance_create_layer(x, y, "ObjsHigher_Upper", ObjIndexFromItemClass(other.ItemHolding));
-			HoldUpItem(inst);
-			}
-		Inventory_DeleteItemClass(ItemClass.Medallion);
-		Sleep = true;
-		DialogueIgnore = true;
-		DialogueSkipOnce = true;
-		exit
-	}
 	
 	DB_Started_GrandChild = true;
 

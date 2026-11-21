@@ -1,11 +1,4 @@
 if(DB_Init && !DB_Delay && !DialogueIgnore){
-
-	if(DialogueSkipOnce){
-		DialogueSkipOnce = false;
-		DB_InitDone = false;
-		DB_Init = false;
-		exit;
-	}
 	
 	if(!DB_InitDone){
 		DB_Init_Child = true;
