@@ -1,4 +1,4 @@
-if(!DB_Started && State == NPCState_OldLady.Letter && oLink.State != LinkState.Idle && !global.Paused){
+if(!global.Speedrun && !DB_Started && State == NPCState_OldLady.Letter && oLink.State != LinkState.Idle && !global.Paused){
 	
 	global.Paused = true;
 	with(oLink){

@@ -2,6 +2,18 @@ event_inherited();
 
 if(DB_Init_GrandChild){
 	
+	if (ItemHolding != -1 && global.Speedrun && Inventory_ItemExists(ItemClass.Mirror)){
+		DB_Init_GrandChild = false;
+		global.Paused = true;
+		with(oLink){					
+			var inst = instance_create_layer(x, y, "ObjsHigher_Upper", ObjIndexFromItemClass(other.ItemHolding));
+			HoldUpItem(inst);
+		}
+		Inventory_DeleteItemClass(ItemClass.Mirror);
+		ItemHolding = -1;
+		ResponseIndex = 1;
+		DialogueSkipOnce = true; 
+	}
 	if(ResponseIndex == -1){
 		ResponseIndex = Inventory_ItemExists(ItemClass.Mirror) ? 0 : -1;
 	}

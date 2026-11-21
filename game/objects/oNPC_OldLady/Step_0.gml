@@ -27,16 +27,26 @@ if(TurningGrey && !global.Paused){
 
 if(DB_Init){
 	
-	global.DB_Inst = instance_create_layer(0,0, "System", oDialogueBox);
+	if !global.Speedrun{
+		global.DB_Inst = instance_create_layer(0,0, "System", oDialogueBox);
 	
-	switch(State){
-		case NPCState_OldLady.Awake: global.DB_Inst.Script = DB_Script_Awake; break;
-		case NPCState_OldLady.Letter: global.DB_Inst.Script = DB_Script_Letter; break;
-		case NPCState_OldLady.Farewell: global.DB_Inst.Script = DB_Script_Farewell; break;
+		switch(State){
+			case NPCState_OldLady.Awake: global.DB_Inst.Script = DB_Script_Awake; break;
+			case NPCState_OldLady.Letter: global.DB_Inst.Script = DB_Script_Letter; break;
+			case NPCState_OldLady.Farewell: global.DB_Inst.Script = DB_Script_Farewell; break;
+		}
+		DB_Started = true;
 	}
-
+	else{
+		if (Inventory_ItemExists(ItemClass.Letter)){
+			image_index = 1;
+			DeliveredLetter = true;	
+			Inventory_DeleteItemClass(ItemClass.Letter);
+			var inst = ItemSpawn(ItemClass.Rupee, oLink.x, oLink.y, ItemFrom.LargeTreasure, ItemSpawnType.None, UPPER);	
+			HoldUpItem(inst, ItemFrom.LargeTreasure);
+		}
+	}
 	DB_Init = false;
-	DB_Started = true;
 
 }
 

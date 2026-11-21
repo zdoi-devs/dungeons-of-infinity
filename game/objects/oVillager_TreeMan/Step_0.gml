@@ -22,6 +22,20 @@ if(Transform){
 
 if(DB_Init_GrandChild){
 	
+	if(global.Speedrun && Transformed && ItemHolding != -1 && Inventory_ItemExists(ItemClass.Powder)){
+		DB_Init_GrandChild = false;
+		global.Paused = true;
+			with(oLink){					
+				var inst = instance_create_layer(x, y, "ObjsHigher_Upper", ObjIndexFromItemClass(other.ItemHolding));
+				HoldUpItem(inst);
+			}
+		Inventory_DeleteItemClass(ItemClass.Powder);
+		ItemHolding = -1;
+		ResponseIndex = 4;
+		DialogueSkipOnce = true; 
+		exit;
+	}
+	
 	if(ResponseIndex == -1){
 		ResponseIndex = Transformed ? 0 : -1;
 	}
@@ -97,7 +111,6 @@ if(DB_Started_GrandChild){
 				break;
 			
 			case 4:
-				
 				break;
 		}
 		

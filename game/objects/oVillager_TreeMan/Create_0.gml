@@ -11,5 +11,5 @@ TransformSoundID = 0;
 BeamSoundDelay = 14;
 PlaySound = true;
 ItemHolding = ItemClass.Medallion;
-
+DialogueSkipOnce = false;
 ObjSetImageSpeed(0);

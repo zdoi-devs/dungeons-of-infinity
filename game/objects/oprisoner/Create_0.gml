@@ -53,16 +53,25 @@ DB_Started = false;
 		}
 	}
 	
-	DB_Script = ds_grid_create(5, 8); var i = 0; var Addr=0;
+	if global.Speedrun{
+		DB_Script = ds_grid_create(5, 4); var i = 0; var Addr=0;
 
-			DB_Script[# 0, Addr] = DBScriptCode.IfGoto;			DB_Script[# ++i, Addr] = method(self, ScriptFunction_Letter);		DB_Script[# ++i, Addr] = 2; DB_Script[# ++i, Addr] = 1; i = 0;
-	Addr=1;	DB_Script[# 0, Addr] = DBScriptCode.Dialogue;		DB_Script[# ++i, Addr] = method(self, ScriptFunction_Dialogue_Prisoner); DB_Script[# ++i, Addr] = 6; i = 0;
-	Addr=2;	DB_Script[# 0, Addr] = DBScriptCode.Dialogue_YesNo;	DB_Script[# ++i, Addr] = global.Dialogue_Prisoner_LetterIntro;		DB_Script[# ++i, Addr] = 3; DB_Script[# ++i, Addr] = 5; i = 0;
-	Addr=3;	DB_Script[# 0, Addr] = DBScriptCode.Dialogue_YesNo;	DB_Script[# ++i, Addr] = global.Dialogue_Prisoner_LetterYes1;		DB_Script[# ++i, Addr] = 4; DB_Script[# ++i, Addr] = 5; i = 0;
-	Addr=4;	DB_Script[# 0, Addr] = DBScriptCode.Dialogue;		DB_Script[# ++i, Addr] = global.Dialogue_Prisoner_LetterYes2;		DB_Script[# ++i, Addr] = 7; i = 0;
-	Addr=5;	DB_Script[# 0, Addr] = DBScriptCode.Dialogue;		DB_Script[# ++i, Addr] = global.Dialogue_Prisoner_LetterNo;			DB_Script[# ++i, Addr] = 6; i = 0;
-	Addr=6; DB_Script[# 0, Addr] = DBScriptCode.End;			DB_Script[# ++i, Addr] = 0; i = 0;
-	Addr=7; DB_Script[# 0, Addr] = DBScriptCode.End;			DB_Script[# ++i, Addr] = 1; i = 0;
+						DB_Script[# 0, Addr] = DBScriptCode.IfGoto;			DB_Script[# ++i, Addr] = method(self, ScriptFunction_Letter);		DB_Script[# ++i, Addr] = 3; DB_Script[# ++i, Addr] = 1; i = 0;
+		Addr=1;	DB_Script[# 0, Addr] = DBScriptCode.Dialogue;		DB_Script[# ++i, Addr] = method(self, ScriptFunction_Dialogue_Prisoner); DB_Script[# ++i, Addr] = 2; i = 0;
+		Addr=2; DB_Script[# 0, Addr] = DBScriptCode.End;			DB_Script[# ++i, Addr] = 0; i = 0;
+		Addr=3; DB_Script[# 0, Addr] = DBScriptCode.End;			DB_Script[# ++i, Addr] = 1; i = 0;
+	}
+	else{
+		DB_Script = ds_grid_create(5, 8); var i = 0; var Addr=0;
 
+				DB_Script[# 0, Addr] = DBScriptCode.IfGoto;			DB_Script[# ++i, Addr] = method(self, ScriptFunction_Letter);		DB_Script[# ++i, Addr] = 2; DB_Script[# ++i, Addr] = 1; i = 0;
+		Addr=1;	DB_Script[# 0, Addr] = DBScriptCode.Dialogue;		DB_Script[# ++i, Addr] = method(self, ScriptFunction_Dialogue_Prisoner); DB_Script[# ++i, Addr] = 6; i = 0;
+		Addr=2;	DB_Script[# 0, Addr] = DBScriptCode.Dialogue_YesNo;	DB_Script[# ++i, Addr] = global.Dialogue_Prisoner_LetterIntro;		DB_Script[# ++i, Addr] = 3; DB_Script[# ++i, Addr] = 5; i = 0;
+		Addr=3;	DB_Script[# 0, Addr] = DBScriptCode.Dialogue_YesNo;	DB_Script[# ++i, Addr] = global.Dialogue_Prisoner_LetterYes1;		DB_Script[# ++i, Addr] = 4; DB_Script[# ++i, Addr] = 5; i = 0;
+		Addr=4;	DB_Script[# 0, Addr] = DBScriptCode.Dialogue;		DB_Script[# ++i, Addr] = global.Dialogue_Prisoner_LetterYes2;		DB_Script[# ++i, Addr] = 7; i = 0;
+		Addr=5;	DB_Script[# 0, Addr] = DBScriptCode.Dialogue;		DB_Script[# ++i, Addr] = global.Dialogue_Prisoner_LetterNo;			DB_Script[# ++i, Addr] = 6; i = 0;
+		Addr=6; DB_Script[# 0, Addr] = DBScriptCode.End;			DB_Script[# ++i, Addr] = 0; i = 0;
+		Addr=7; DB_Script[# 0, Addr] = DBScriptCode.End;			DB_Script[# ++i, Addr] = 1; i = 0;
+	}
 
 #endregion
