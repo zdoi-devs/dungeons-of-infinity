@@ -40,9 +40,14 @@ if(!DB_Started && !instance_exists(global.DB_Inst)){
 				switch(MenuSelectionIndex){	
 					
 					case 0: //equip
-						global.Inventory.SlotEquiped[0] = _BagIndex;
-						global.Inventory.SlotEquiped[1] = _SlotIndex;						
-						audio_play_sound(Sound_TextDone, 1, false);
+						var _Target = Inventory_ResolveBombBag(_BagIndex, _SlotIndex);
+						if(_Target[0] != -1){
+							global.Inventory.SlotEquiped[0] = _Target[0];
+							global.Inventory.SlotEquiped[1] = _Target[1];
+							audio_play_sound(Sound_TextDone, 1, false);
+						}else{
+							audio_play_sound_stopall(Sound_Error);
+						}
 						break;
 					
 					case 1: //use
@@ -147,16 +152,22 @@ if(!DB_Started && !instance_exists(global.DB_Inst)){
 			
 			if(global.HoverEquip == true && hover_debounce == true && global.ItemData[ItemClassSelected].CanEquip){
 				
-				global.Inventory.SlotEquiped[0] = _BagIndexSelected;
-				global.Inventory.SlotEquiped[1] = _SlotIndexSelected;
-				audio_play_sound(Sound_TextDone, 1, false);	
+				var _Target = Inventory_ResolveBombBag(_BagIndexSelected, _SlotIndexSelected);
+				if(_Target[0] != -1){
+					global.Inventory.SlotEquiped[0] = _Target[0];
+					global.Inventory.SlotEquiped[1] = _Target[1];
+					audio_play_sound(Sound_TextDone, 1, false);
+				}
 				hover_debounce = false
 				
 			}else if(input_check_pressed("item") && global.ItemData[ItemClassSelected].CanEquip){
 				
-				global.Inventory.SlotEquiped[0] = _BagIndexSelected;
-				global.Inventory.SlotEquiped[1] = _SlotIndexSelected;
-				audio_play_sound(Sound_TextDone, 1, false);		
+				var _Target = Inventory_ResolveBombBag(_BagIndexSelected, _SlotIndexSelected);
+				if(_Target[0] != -1){
+					global.Inventory.SlotEquiped[0] = _Target[0];
+					global.Inventory.SlotEquiped[1] = _Target[1];
+					audio_play_sound(Sound_TextDone, 1, false);
+				}
 
 			}else if(input_check_pressed("sword")){
 			

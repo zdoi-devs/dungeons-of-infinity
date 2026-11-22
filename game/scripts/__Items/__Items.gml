@@ -60,7 +60,7 @@ function Items_InitData(){
 									//  Type				Can	Can	Can	Lmt	Lmt
 									//						Eqp	Use	Drp	Min	St
 	ItemDataInit(ItemClass.ArrowQuiver,	ItemType.Inv_Bool,	0,	0,	0,	0,	7);
-	ItemDataInit(ItemClass.BombBag,		ItemType.Inv_Bool,	0,	0,	0,	0,	7);
+	ItemDataInit(ItemClass.BombBag,		ItemType.Inv_Bool,	1,	0,	0,	0,	7);
 	ItemDataInit(ItemClass.FoodBag,		ItemType.Inv_Bool,	0,	0,	0,	0,	7);
 	ItemDataInit(ItemClass.PendantBag,	ItemType.Inv_Bool,	0,	0,	0,	0,	7);
 	ItemDataInit(ItemClass.GemBag,		ItemType.Inv_Bool,	0,	0,	0,	0,	7);

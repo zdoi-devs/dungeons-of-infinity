@@ -1425,3 +1425,18 @@ function Inventory_GetPosOffset(_SpriteIndex, _ItemIndex){
 	return Offset;
 	
 }
+
+function Inventory_ResolveBombBag(_BagIndex, _SlotIndex){
+
+	var _Slot = global.Inventory.Bags[_BagIndex].Slots[_SlotIndex];
+
+	if(_Slot.ItemClass == ItemClass.BombBag){
+		var _BombSlot = global.Inventory.Bags[InventoryBag.Bombs].Slots[0];
+		if(_BombSlot.ItemClass == ItemClass.Bombs){ 
+			return [InventoryBag.Bombs, 0];
+		}
+		return [-1, -1];   
+	}
+
+	return [_BagIndex, _SlotIndex];
+}

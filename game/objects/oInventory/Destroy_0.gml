@@ -1,4 +1,5 @@
 ds_grid_destroy(DBScript_Info);
+ds_grid_destroy(MenuItemGrid);
 global.InventoryInst = noone;
 global.Paused = false;
 
