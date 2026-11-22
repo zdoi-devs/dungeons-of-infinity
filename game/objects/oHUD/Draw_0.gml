@@ -269,7 +269,7 @@ if global.Speedrun{
 				}
 			}
 			//draw personal best
-			if !(comparison_delta > 0 or current_splits_segment > personal_best_segment){
+			if !(current_splits_length == 12 and (comparison_delta > 0 or current_splits_segment > personal_best_segment)){
 				draw_set_font(global.Font_Small)
 				draw_text(SplitTimersX, SplitTimersY[12], Time_Str(personal_best_splits[12]))
 			}
