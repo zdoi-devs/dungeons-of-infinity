@@ -41,7 +41,7 @@ Menu_Create(GameMenuPage.Main, "", [
 
 var _BackToMain = function(_Sound){ GameMenu_Open(GameMenuPage.Main, _Sound); };
 
-// Options apply live; Save writes them (volumes to options.ini, the rest to the user file), Back puts them back
+// Options apply live; Save writes them (volumes to game_options.ini, the rest to the user file), Back puts them back
 Menu_Create(GameMenuPage.Options, "Options", [
 	Menu_BackItem(),
 	Menu_SaveItem(),

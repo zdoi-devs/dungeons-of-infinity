@@ -450,10 +450,10 @@ function User_UpdateMusicSFX(){
 
 }
 
-//writes the settings to options.ini (saved in the appdata folder, not next to the exe)
+//writes the settings to game_options.ini (saved in the appdata folder, not next to the exe)
 function Settings_SaveIni(){
 	try{
-		ini_open("options.ini");
+		ini_open("game_options.ini");
 		ini_write_real("Screen", "Fullscreen", global.Fullscreen ? 1 : 0);
 		ini_write_real("Audio", "MusicVol", round(global.MusicVol * 100) / 100);
 		ini_write_real("Audio", "SFXVol", round(global.SFXVol * 100) / 100);
