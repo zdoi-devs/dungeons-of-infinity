@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":22050,
-  "soundFile":"sound_fairysprinkle.wav",
+  "soundFile":"Sound_FairySprinkle.wav",
   "volume":1.0,
 }

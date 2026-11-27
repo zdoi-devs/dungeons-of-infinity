@@ -18,7 +18,7 @@ global.CheatsEnabled = false;
 
 LinkSprites_Load();
 
-ini_open("options.ini");
+ini_open("game_options.ini");
 
 Borderless = ini_read_real("Screen", "Borderless", false);
 global.Fullscreen = ini_read_real("Screen", "Fullscreen", 1) == 1 ? true : false;

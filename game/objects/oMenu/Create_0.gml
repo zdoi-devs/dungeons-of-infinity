@@ -250,7 +250,7 @@ Menu_Create(MenuIndex.CheatWarning, "Enable Cheats?", Menu_CheatWarningRows(), {
 	OnBack: function(){ Menu_CloseCheatWarning(false); }
 });
 
-// Settings apply live so they can be previewed; Save writes them to options.ini, Back puts them back
+// Settings apply live so they can be previewed; Save writes them to game_options.ini, Back puts them back
 Menu_Create(MenuIndex.Settings, "Settings", [
 	Menu_BackItem(),
 	Menu_SaveItem(),
